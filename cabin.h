@@ -63,3 +63,62 @@ void state(void){
 #endif                                   //end of conditional compilation
 }
 
+
+//------------------Traffic Light function----------------------------//
+
+void light(){
+	char flag;                          //flag for validation to break from while loop with it
+	char color;
+	while(1){                           //for continuous validation
+		scanf(" %c",&color);
+		switch(color){
+		case 'g':                       //if 'g' was chosen speed became 100 Km/Hr
+		case 'G':
+			car.light='g';
+			car.speed=go;
+			state();
+			flag=1;
+			break;
+		case 'o':                       //if 'o' was chosen speed became 30 Km/Hr and:
+		case 'O':                       //  - AC & engine temperature controller turn ON
+			//  - room & engine(if compiled "WITH_ENGINE_TEMP_CONTROLLER=1") temperature became same value*(5/4)+1
+
+			color='o';                  //for better validation
+			car.speed=calm_down;
+			if(car.light!='o'){         //for validation so not each time 'o' is chosen many times without any change between, temperature will change
+				car.light='o';
+				car.ACstate=ON;
+				car.roomTemp=car.roomTemp*(5/4)+1;
+#if WITH_ENGINE_TEMP_CONTROLLER                           //conditional compilation (for engine appearance)
+				car.eTempController=ON;
+				car.engineTemp=car.engineTemp*(5/4)+1;
+#endif                                  //end of conditional compilation
+			}
+			state();
+			flag=1;
+			break;
+
+		case 'r':                       //if 'r' was chosen speed became 0 Km/Hr
+		case 'R':
+			car.light='r';
+			car.speed=stop;
+			state();
+			flag=1;
+			break;
+
+		default:                        //for validation if wrong input
+			printf("\n");
+			printf("-----\n");
+			printf("| | |\n");
+			printf("| | |Worng input!! Try again\n");
+			printf("| o |\n");
+			printf("-----\n");
+			flag=0;
+
+			printf("Enter the rehquired light: ");
+		}
+		if(1==flag)
+			break;
+	}
+}
+
