@@ -110,7 +110,7 @@ int main(void) {
 				car.engineState=OFF;               //engine is off
 				break;
 
-			default:                              //for validation if wrong input in 1st list.
+			default:                                  //for validation if wrong input in 1st list.
 				printf("\n");
 				printf("-----\n");
 				printf("| | |\n");
@@ -125,6 +125,8 @@ int main(void) {
 	printf("\n");
 	printf("    -------------------\n");
 	printf("    | See U later! ;->|\n");          //if 'c' was chosen at 1st list, program shut_down
-	printf("    -------------------\n");	return 0;
+	printf("    -------------------\n");	
+	
+	return 0;
 }
 
