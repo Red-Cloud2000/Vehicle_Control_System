@@ -14,7 +14,7 @@ int main(void) {
 	car.engineState = 0;
 	car.ACstate = 0;
 	car.speed = 100;
-#if switching
+#if WITH_ENGINE_TEMP_CONTROLLER
 	car.engineTemp=90;
 	car.eTempController = 0;
 #endif
@@ -43,7 +43,7 @@ int main(void) {
 					printf("a. Turn off the engine\n");                               //                //
 					printf("b. Set the traffic light color.\n");                       //                //
 					printf("c. Set the room temperature (Temperature Sensor)\n");       // (Turn ON List) //
-#if switching         //conditional compilation (for engine appearance)                  // Second List    //
+#if WITH_ENGINE_TEMP_CONTROLLER         //conditional compilation (for engine appearance)                  // Second List    //
 					printf("d. Set the engine temperature (Engine Temperature Sensor)\n");//                //
 #endif                //end of conditional compilation                                     //                //
 
@@ -76,7 +76,7 @@ int main(void) {
 							roomTempCap();         //Function that take room temperature as an input then change it if necessary
 							state();               //depending on that input with the help of the AC.
 							break;
-#if switching                                      //conditional compilation (for engine appearance)
+#if WITH_ENGINE_TEMP_CONTROLLER                                      //conditional compilation (for engine appearance)
 
 						case 'd':                  //If'c'(vehicle engine temperature)is chosen a sensor should detect it but for now
 						case 'D':                  //a request would appear to the user and the engine temperature would be
