@@ -100,3 +100,31 @@ int main(void) {
 
 				}
 				break;                            //break of case'a' of choice1
+					
+								case 'b':                             //If'b'is chosen engine turns off and the 1st list appears.
+			case 'B':
+				printf("\n");
+				printf("    -------------------\n");
+				printf("   |Vehicle engine: OFF |\n");
+				printf("    -------------------\n");
+				car.engineState=OFF;               //engine is off
+				break;
+
+			default:                              //for validation if wrong input in 1st list.
+				printf("\n");
+				printf("-----\n");
+				printf("| | |\n");
+				printf("| | |Worng input!! Try again\n");
+				printf("| o |\n");
+				printf("-----\n");
+			}
+		}
+	}
+
+	//------------------shut_down message----------------------------//
+	printf("\n");
+	printf("    -------------------\n");
+	printf("    | See U later! ;->|\n");          //if 'c' was chosen at 1st list, program shut_down
+	printf("    -------------------\n");	return 0;
+}
+
