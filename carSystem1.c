@@ -29,7 +29,7 @@ int main(void) {
 		printf("b. Turn off the vehicle engine\n");   //  First List //
 		printf("c. Quit the system\n");                //             //
 		scanf(" %c",&choice1);
-		if(choice1=='c'||choice1=='C'){  //So if 'c' was chosen it quit the system
+		if(choice1=='c'||choice1=='C'){      //So if 'c' was chosen it quit the system
 			break;                       //Breaks out of while then quit system
 		}
 		else{
@@ -43,9 +43,9 @@ int main(void) {
 					printf("a. Turn off the engine\n");                               //                //
 					printf("b. Set the traffic light color.\n");                       //                //
 					printf("c. Set the room temperature (Temperature Sensor)\n");       // (Turn ON List) //
-#if WITH_ENGINE_TEMP_CONTROLLER         //conditional compilation (for engine appearance)                  // Second List    //
+#if WITH_ENGINE_TEMP_CONTROLLER         //conditional compilation (for engine appearance)                    // Second List    //
 					printf("d. Set the engine temperature (Engine Temperature Sensor)\n");//                //
-#endif                //end of conditional compilation                                     //                //
+#endif                //end of conditional compilation                                                         //                //
 
 					char choice2;                   //The input chosen by the user at second list
 					scanf(" %c",&choice2);
@@ -101,7 +101,7 @@ int main(void) {
 				}
 				break;                            //break of case'a' of choice1
 					
-								case 'b':                             //If'b'is chosen engine turns off and the 1st list appears.
+			case 'b':                                 //If'b'is chosen engine turns off and the 1st list appears.
 			case 'B':
 				printf("\n");
 				printf("    -------------------\n");
