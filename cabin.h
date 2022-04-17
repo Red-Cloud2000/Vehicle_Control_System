@@ -122,3 +122,39 @@ void light(){
 	}
 }
 
+//------------------Room temperature cabin function----------------------------//
+
+void roomTempCap(void){                //function that controls room temperature
+	scanf(" %d",&car.roomTemp);
+	if(car.roomTemp<10){               //if room temperature is less than 10:
+		car.ACstate=ON;                // - Turn AC ON
+		car.roomTemp=20;               // - make it 20 C
+	}
+	else if(car.roomTemp>30){          //if room temperature is more than 30:
+		car.ACstate=ON;                // - Turn AC ON
+		car.roomTemp=20;               // - make it 20 C
+	}
+	else
+		car.ACstate=OFF;               //else turn off AC and leave temperature as it is
+
+}
+
+//------------------Engine temperature cabin function----------------------------//
+
+#if WITH_ENGINE_TEMP_CONTROLLER                         //conditional compilation (for engine appearance)
+
+void engineTempCap(void){             //function that controls engine temperature
+	scanf(" %d",&car.engineTemp);
+	if(car.engineTemp<100){           //if engine temperature is less than 100:
+		car.eTempController=ON;       // - Turn engine temperature controller ON
+		car.engineTemp=125;           // - make it 125 C
+	}
+	else if(car.engineTemp>150){      //if engine temperature is more than 150:
+		car.eTempController=ON;       // - Turn engine temperature controller ON
+		car.engineTemp=125;           // - make it 125 C
+	}
+	else
+		car.eTempController=OFF;      //else turn off engine temperature controller and leave temperature as it is
+
+}
+#endif                                //end of conditional compilation
