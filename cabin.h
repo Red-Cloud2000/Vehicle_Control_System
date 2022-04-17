@@ -28,3 +28,38 @@ struct{
 
 }car;
 
+	//------------------State updating function----------------------------//
+
+void state(void){
+	printf("\n");
+	printf("\n");
+
+	if(ON==car.engineState)                 //check if engine is ON or OFF
+		printf("Engine is ON \n");
+	else
+		printf("Engine is OFF \n");
+	if(ON==car.ACstate)                              //check if AC is ON or OFF
+		printf("AC is ON \n");
+	else
+		printf("AC is OFF \n");
+
+	printf("Vehicle Speed: %d Km/Hr\n",car.speed);  //show vehicle speed
+	printf("Room Temperature: %d C\n",car.roomTemp);//show vehicle room temperature
+#if WITH_ENGINE_TEMP_CONTROLLER < 1                         //conditional compilation if engine appearance is disabled so do this for better UI
+	printf("\n");
+	printf("\n");
+#endif                                    //end of conditional compilation
+
+#if WITH_ENGINE_TEMP_CONTROLLER                             //conditional compilation (for engine appearance)
+
+	if(ON==car.eTempController)            //check if engine temperature controller is ON or OFF
+		printf("Engine Temperature Controller is ON \n");
+	else
+		printf("Engine Temperature Controller is OFF \n");
+
+	printf("Engine Temperature: %d C\n",car.engineTemp); //show vehicle engine temperature
+	printf("\n");
+	printf("\n");
+#endif                                   //end of conditional compilation
+}
+
